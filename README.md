@@ -180,8 +180,7 @@ df['score'].hist()
 ---
 
 ### 8. Confirm Readiness (Required to Attend)
-- Upload a **screenshot** of your plot output + package versions  
-  to the short form (link in the course email).  
+- Upload a **screenshot** of your plot output + package versions to the [short form](https://imperial.eu.qualtrics.com/jfe/form/SV_0ILjNX1PUugFEPk) (also sent in the course email).  
 - **Deadline:** 1 week before Day 1.  
 
 ---
