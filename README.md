@@ -129,15 +129,17 @@ This allows you to select the **Python (m3)** kernel in Jupyter notebooks.
 
 ---
 
-### 5. Download the “Test Notebook”
-- The link will be shared via **email/GitHub**.  
-- Save it locally (e.g., `~/m3/`).  
+### 5. Download the “Test Notebook” & `demo.csv`
+- Download these from GitHub (main directory)  
+- Save them locally (e.g., `~/m3/`).  
 
 ---
 
 ### 6. Run the Test Notebook (Must Pass)
-Open VS Code → Command Palette → “Jupyter: Create New Blank Notebook”  
-(or open the shared test notebook) → select the **m3 kernel** → run:
+You can also create your own test notebook: Open VS Code → Command Palette → “Jupyter: Create New Blank Notebook” 
+→ select the **m3 kernel** → run:
+
+(or you can simply open the downloaded test notebook)
 
 ```python
 import sys, pandas as pd, matplotlib, sklearn
@@ -155,7 +157,7 @@ plt.show()
 ---
 
 ### 7. CSV Sanity Check
-Create a small CSV file named `demo.csv` with columns:
+Again, you can create a small CSV file yourself, named `demo.csv` with columns (or you can download the one shared by us):
 ```
 id,age,sex,score
 1,45,M,3
@@ -165,6 +167,8 @@ id,age,sex,score
 5,61,M,3
 ```
 (4–5 rows of dummy data)
+
+Note: Keep the test notebook and the `demo.csv` file in the same folder.
 
 Then in your notebook, run:
 ```python
