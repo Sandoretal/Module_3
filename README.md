@@ -93,7 +93,13 @@ pip install -r requirements.txt
 pip install pandas matplotlib seaborn numpy jupyter scikit-learn
 ```
 
-**Note:** Your terminal prompt will show `(m3)` when the environment is active.
+**Setup Videos (Mac users)**
+1. **Install Python (3.10–3.12) + required libraries**
+2. **Clone the GitHub repository**
+3. **Run the first tutorial notebook and select the correct Python environment**
+
+https://www.dropbox.com/scl/fo/heq4zyq3j9k0aqvnh01cp/ACoWQwFvlBS1vkrvmJOj2Gs?rlkey=ogj3u2sws3u389lsdsg76rxo0&dl=0
+
 
 #### Option B: venv (Built-in Python)
 ```bash
