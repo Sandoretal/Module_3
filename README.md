@@ -23,7 +23,7 @@ This module introduces the foundations of data handling, visualization, and repr
 The course is **hands-on**, and students are expected to come prepared with a working Python setup.
 
 **Course Lead:** Dr. Cynthia Sandor  
-**Primary support:** Microsoft Teams (“Module 3 — Install Help” channel) — *please post questions here rather than emailing.*  
+**Primary support:** Microsoft Teams (“Module 3  Introduction to Computational Methods for the Brain Sciences"  — General channel) — *please post questions here rather than emailing.*  
 **Email (admin or confidential matters only):** [c.sandor@imperial.ac.uk](mailto:c.sandor@imperial.ac.uk)
 
 ---
