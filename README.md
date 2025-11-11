@@ -271,4 +271,16 @@ to keep the class running smoothly.
 
 ---
 
+## Additional Information about conda environments
+If you're getting an error whilst installing miceforest library, use this code in the terminal:
+Put this file in your environments folder and run this in the terminal:
+ 
+1. `conda env create -f environments_and_requirements/environment_day2.yml`
+2. activate the environment
+`conda activate day2`
+3. Select the environment manager in the top right corner
+4. Press 'Select another environment'
+5. Select "Python environments"
+6. Select "day2"
+
 *© Imperial College London – MSc in Translational Neuroscience, Department of Brain Sciences (2025)*  
