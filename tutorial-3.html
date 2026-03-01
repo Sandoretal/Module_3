@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial 3 | Module 3</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="tutorial-1.html">Tutorial 1</a>
+      <a href="tutorial-2.html">Tutorial 2</a>
+      <a class="active" href="tutorial-3.html">Tutorial 3</a>
+      <a href="tutorial-4.html">Tutorial 4</a>
+      <a href="resources.html">Resources</a>
+      <a href="files.html">Files</a>
+    </nav>
+
+    <header class="banner">
+      <span class="eyebrow">Tutorial 3</span>
+      <h1>Time-series data as biological signals</h1>
+      <p class="lead">
+        Tutorial 3 covers signal-oriented workflows for ECG and accelerometer data, including preprocessing,
+        segmentation, feature extraction, and time/frequency-domain analysis.
+      </p>
+    </header>
+
+    <section class="section">
+      <div class="duo">
+        <div class="mini-panel">
+          <span class="eyebrow">Primary files</span>
+          <h3>Notebook entry points</h3>
+          <ul>
+            <li><a href="tutorial_3/TimeSeriesAnalysis.ipynb">TimeSeriesAnalysis.ipynb</a></li>
+            <li><a href="tutorial_3/README.md">Tutorial 3 README</a></li>
+            <li><a href="tutorial_3/pads10_accelerometer_data.csv">Accelerometer dataset</a></li>
+          </ul>
+        </div>
+        <aside class="contributors">
+          <span class="eyebrow">Contributors</span>
+          <h3>Notebook contributors</h3>
+          <ul class="contributors-list">
+            <li>Cecilia Rodriguez</li>
+            <li>Katarzyna Zoltowska</li>
+            <li>Marirena Bafaloukou</li>
+            <li>Anastasia Ilina</li>
+            <li>Rishideep Chatterjee</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Concept map</span>
+          <h2>Concepts introduced</h2>
+        </div>
+        <input id="conceptSearch" class="search" type="search" placeholder="Filter concepts or files">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Concept</th>
+              <th>Focus</th>
+              <th>Files</th>
+            </tr>
+          </thead>
+          <tbody id="conceptTable">
+            <tr data-search="time series health trajectories wearable clinical challenges static dynamic models">
+              <td>Time-series foundations</td>
+              <td>Healthcare trajectories, wearable data context, and challenges of dynamic biomedical signals.</td>
+              <td><a href="tutorial_3/TimeSeriesAnalysis.ipynb">Notebook</a> / <a href="tutorial_3/README.md">Guide</a></td>
+            </tr>
+            <tr data-search="ecg acquisition checks preprocessing feature extraction missing values signal cleaning beat detection segmentation">
+              <td>ECG analysis pipeline</td>
+              <td>Acquisition, quality checks, preprocessing, cleaning, and beat-level segmentation.</td>
+              <td><a href="tutorial_3/TimeSeriesAnalysis.ipynb">Notebook</a></td>
+            </tr>
+            <tr data-search="missing data smoothing normalization bandpass filtering resampling">
+              <td>Signal preprocessing techniques</td>
+              <td>Imputation, smoothing, normalization, filtering, and resampling methods for signals.</td>
+              <td><a href="tutorial_3/README.md">Guide</a></td>
+            </tr>
+            <tr data-search="accelerometer analysis wearable pads downsampling filtering windowing 3d visualization">
+              <td>Accelerometer workflow</td>
+              <td>Wearable sensor loading, exploration, preprocessing, and 3D movement visualisation.</td>
+              <td><a href="tutorial_3/TimeSeriesAnalysis.ipynb">Notebook</a><br><a href="tutorial_3/pads10_accelerometer_data.csv">Dataset</a></td>
+            </tr>
+            <tr data-search="windowing segmentation fixed length overlap time domain features frequency domain fft">
+              <td>Feature engineering</td>
+              <td>Windowing, time-domain statistics, magnitude features, and frequency-domain analysis.</td>
+              <td><a href="tutorial_3/README.md">Guide</a><br><a href="tutorial_3/images/FFT.png">FFT image</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>Tutorial 3 page for Module 3.</footer>
+  </div>
+  <script>
+    const input = document.getElementById("conceptSearch");
+    const rows = Array.from(document.querySelectorAll("#conceptTable tr"));
+    input.addEventListener("input", () => {
+      const query = input.value.trim().toLowerCase();
+      rows.forEach((row) => {
+        const haystack = (row.dataset.search || row.textContent).toLowerCase();
+        row.style.display = haystack.includes(query) ? "" : "none";
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial 1 | Module 3</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a class="active" href="tutorial-1.html">Tutorial 1</a>
+      <a href="tutorial-2.html">Tutorial 2</a>
+      <a href="tutorial-3.html">Tutorial 3</a>
+      <a href="tutorial-4.html">Tutorial 4</a>
+      <a href="resources.html">Resources</a>
+      <a href="files.html">Files</a>
+    </nav>
+
+    <header class="banner">
+      <span class="eyebrow">Tutorial 1</span>
+      <h1>Introduction to Python</h1>
+      <p class="lead">
+        Python syntax, variables, data types, operators, control flow, file handling, and a beginner-facing path
+        into pandas and data exploration for biomedical examples.
+      </p>
+    </header>
+
+    <section class="section">
+      <div class="duo">
+        <div class="mini-panel">
+          <span class="eyebrow">Primary files</span>
+          <h3>Notebook entry points</h3>
+          <ul>
+            <li><a href="tutorial_1/Introduction_and_functions.ipynb">Introduction_and_functions.ipynb</a></li>
+            <li><a href="tutorial_1/Introduction_and_functions_withsolutions.ipynb">Introduction_and_functions_withsolutions.ipynb</a></li>
+            <li><a href="tutorial_1/Tutorial_1_extra_exercises/Extra_exercises_tutorial_1.ipynb">Extra exercises</a></li>
+            <li><a href="tutorial_1/README.md">Tutorial 1 README</a></li>
+          </ul>
+        </div>
+        <aside class="contributors">
+          <span class="eyebrow">Contributors</span>
+          <h3>Notebook contributors</h3>
+          <p>Added from your requested list for the notebook pages in this site.</p>
+          <ul class="contributors-list">
+            <li>Cecilia Rodriguez</li>
+            <li>Katarzyna Zoltowska</li>
+            <li>Marirena Bafaloukou</li>
+            <li>Anastasia Ilina</li>
+            <li>Rishideep Chatterjee</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Concept map</span>
+          <h2>Concepts introduced</h2>
+        </div>
+        <input id="conceptSearch" class="search" type="search" placeholder="Filter concepts or files">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Concept</th>
+              <th>Focus</th>
+              <th>Files</th>
+            </tr>
+          </thead>
+          <tbody id="conceptTable">
+            <tr data-search="python basics print calculator variables types notebook readme">
+              <td>Python basics</td>
+              <td>Running code, printing, simple calculations, variables, and type checking.</td>
+              <td><a href="tutorial_1/Introduction_and_functions.ipynb">Notebook</a><br><span class="path">tutorial_1/Introduction_and_functions.ipynb</span></td>
+            </tr>
+            <tr data-search="data types strings ints floats bool lists tuples dictionaries sets readme notebook">
+              <td>Core data types</td>
+              <td>Strings, numerics, booleans, and collection types with biomedical examples.</td>
+              <td><a href="tutorial_1/Introduction_and_functions.ipynb">Notebook</a><br><a href="tutorial_1/README.md">Guide</a></td>
+            </tr>
+            <tr data-search="operators arithmetic comparison assignment logical readme">
+              <td>Operators</td>
+              <td>Arithmetic, comparison, assignment, and logical operators.</td>
+              <td><a href="tutorial_1/README.md">Guide</a><br><span class="path">tutorial_1/README.md</span></td>
+            </tr>
+            <tr data-search="modules imports libraries random os pip namespaces readme">
+              <td>Modules and imports</td>
+              <td>Using built-in and third-party modules with reusable code patterns.</td>
+              <td><a href="tutorial_1/README.md">Guide</a></td>
+            </tr>
+            <tr data-search="loops conditionals if elif else for while readme">
+              <td>Control flow</td>
+              <td>Conditionals and loops for procedural logic.</td>
+              <td><a href="tutorial_1/README.md">Guide</a></td>
+            </tr>
+            <tr data-search="files directories text processing sam vcf open os">
+              <td>Files and biomedical text formats</td>
+              <td>Directory navigation, reading files, and working with example SAM and VCF files.</td>
+              <td>
+                <a href="tutorial_1/README.md">Guide</a><br>
+                <a href="tutorial_1/data/example_sam.sam">SAM example</a><br>
+                <a href="tutorial_1/data/clinvar_5000.vcf">VCF example</a>
+              </td>
+            </tr>
+            <tr data-search="pandas dataframe loc iloc describe dropna plot seaborn heatmap extra exercises">
+              <td>Pandas for beginner data science</td>
+              <td>DataFrames, inspection, subsetting, missing data, plotting, and extra practice.</td>
+              <td>
+                <a href="tutorial_1/README.md">Guide</a><br>
+                <a href="tutorial_1/Tutorial_1_extra_exercises/Extra_exercises_tutorial_1.ipynb">Extra exercises</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>Tutorial 1 page for Module 3.</footer>
+  </div>
+  <script>
+    const input = document.getElementById("conceptSearch");
+    const rows = Array.from(document.querySelectorAll("#conceptTable tr"));
+    input.addEventListener("input", () => {
+      const query = input.value.trim().toLowerCase();
+      rows.forEach((row) => {
+        const haystack = (row.dataset.search || row.textContent).toLowerCase();
+        row.style.display = haystack.includes(query) ? "" : "none";
+      });
+    });
+  </script>
+</body>
+</html>
