@@ -77,14 +77,14 @@ body.theme-cecilia {
 body.theme-marirena {
   --coral: #2bb3c0;
   --teal: #1098ad;
-  --gold: #7ce0d6;
+  --gold: #f4c95d;
   --navy: #1d4e89;
   --berry: #147ba6;
   background:
     radial-gradient(circle at 0% 0%, rgba(43, 179, 192, 0.32), transparent 28%),
     radial-gradient(circle at 100% 0%, rgba(16, 152, 173, 0.28), transparent 24%),
-    radial-gradient(circle at 50% 100%, rgba(124, 224, 214, 0.24), transparent 30%),
-    linear-gradient(180deg, #dff8ff 0%, #daf8f2 44%, #eefcff 100%);
+    radial-gradient(circle at 50% 100%, rgba(244, 201, 93, 0.24), transparent 30%),
+    linear-gradient(180deg, #dff8ff 0%, #daf8f2 34%, #fff2d8 68%, #f8f1e4 100%);
 }
 
 body::before {
