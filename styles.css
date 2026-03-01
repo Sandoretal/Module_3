@@ -75,16 +75,16 @@ body.theme-cecilia {
 }
 
 body.theme-marirena {
-  --coral: #ff4d6d;
-  --teal: #2a9d8f;
-  --gold: #ffbe0b;
-  --navy: #264653;
-  --berry: #c1121f;
+  --coral: #2bb3c0;
+  --teal: #1098ad;
+  --gold: #7ce0d6;
+  --navy: #1d4e89;
+  --berry: #147ba6;
   background:
-    radial-gradient(circle at 0% 0%, rgba(255, 77, 109, 0.3), transparent 28%),
-    radial-gradient(circle at 100% 0%, rgba(42, 157, 143, 0.26), transparent 24%),
-    radial-gradient(circle at 50% 100%, rgba(255, 190, 11, 0.22), transparent 30%),
-    linear-gradient(180deg, #ffe2ea 0%, #e2fff7 42%, #fff7e8 100%);
+    radial-gradient(circle at 0% 0%, rgba(43, 179, 192, 0.32), transparent 28%),
+    radial-gradient(circle at 100% 0%, rgba(16, 152, 173, 0.28), transparent 24%),
+    radial-gradient(circle at 50% 100%, rgba(124, 224, 214, 0.24), transparent 30%),
+    linear-gradient(180deg, #dff8ff 0%, #daf8f2 44%, #eefcff 100%);
 }
 
 body::before {
