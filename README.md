@@ -5,6 +5,8 @@
 ### Imperial College London  
 ### Autumn 2025  
 
+Visit our module website for a more interactive experience: https://sandoretal.github.io/Module_3/index.html
+
 ---
 
 ## 🧩 Tutorials Overview
