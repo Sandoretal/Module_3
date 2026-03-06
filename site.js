@@ -2,6 +2,7 @@
   const STORAGE_KEYS = {
     colorMode: "module3-color-mode",
     contrastMode: "module3-contrast-mode",
+    toolbarCollapsed: "module3-toolbar-collapsed",
     zoom: "module3-zoom"
   };
 
@@ -13,36 +14,41 @@
     const toolbar = document.createElement("div");
     toolbar.className = "accessibility-toolbar";
     toolbar.innerHTML = `
-      <button type="button" class="toolbar-button" data-action="toggle-contrast" aria-pressed="false">
-        Color-blind friendly
+      <button type="button" class="toolbar-button toolbar-toggle" data-action="toggle-collapse" aria-expanded="true" aria-label="Minimize accessibility bar">
+        ▾
       </button>
-      <button type="button" class="toolbar-button" data-action="toggle-high-contrast" aria-pressed="false">
-        Contrast
-      </button>
-      <button type="button" class="toolbar-button" data-action="zoom-out" aria-label="Zoom out">
-        A-
-      </button>
-      <button type="button" class="toolbar-button" data-action="zoom-reset" aria-label="Reset zoom">
-        100%
-      </button>
-      <button type="button" class="toolbar-button" data-action="zoom-in" aria-label="Zoom in">
-        A+
-      </button>
-      <button type="button" class="toolbar-button" data-action="toggle-help" aria-expanded="false" aria-label="Keyboard shortcuts">
-        ?
-      </button>
-      <div class="shortcut-panel" hidden>
-        <strong>Keyboard shortcuts</strong>
-        <ul>
-          <li><kbd>Tab</kbd> move through controls</li>
-          <li><kbd>Enter</kbd> activate selected button or link</li>
-          <li><kbd>+</kbd> zoom in</li>
-          <li><kbd>-</kbd> zoom out</li>
-          <li><kbd>0</kbd> reset zoom</li>
-          <li><kbd>C</kbd> toggle color-blind friendly mode</li>
-          <li><kbd>H</kbd> toggle high contrast mode</li>
-          <li><kbd>?</kbd> open or close shortcuts</li>
-        </ul>
+      <div class="toolbar-controls">
+        <button type="button" class="toolbar-button" data-action="toggle-contrast" aria-pressed="false">
+          Color-blind friendly
+        </button>
+        <button type="button" class="toolbar-button" data-action="toggle-high-contrast" aria-pressed="false">
+          Contrast
+        </button>
+        <button type="button" class="toolbar-button" data-action="zoom-out" aria-label="Zoom out">
+          A-
+        </button>
+        <button type="button" class="toolbar-button" data-action="zoom-reset" aria-label="Reset zoom">
+          100%
+        </button>
+        <button type="button" class="toolbar-button" data-action="zoom-in" aria-label="Zoom in">
+          A+
+        </button>
+        <button type="button" class="toolbar-button" data-action="toggle-help" aria-expanded="false" aria-label="Keyboard shortcuts">
+          ?
+        </button>
+        <div class="shortcut-panel" hidden>
+          <strong>Keyboard shortcuts</strong>
+          <ul>
+            <li><kbd>Tab</kbd> move through controls</li>
+            <li><kbd>Enter</kbd> activate selected button or link</li>
+            <li><kbd>+</kbd> zoom in</li>
+            <li><kbd>-</kbd> zoom out</li>
+            <li><kbd>0</kbd> reset zoom</li>
+            <li><kbd>C</kbd> toggle color-blind friendly mode</li>
+            <li><kbd>H</kbd> toggle high contrast mode</li>
+            <li><kbd>?</kbd> open or close shortcuts</li>
+          </ul>
+        </div>
       </div>
     `;
 
@@ -75,15 +81,46 @@
     return clamped;
   }
 
+  function applyToolbarCollapsed(collapsed) {
+    const toolbar = document.querySelector(".accessibility-toolbar");
+    if (!toolbar) {
+      return;
+    }
+
+    toolbar.classList.toggle("is-collapsed", collapsed);
+    const toggleButton = toolbar.querySelector('[data-action="toggle-collapse"]');
+    if (toggleButton) {
+      toggleButton.setAttribute("aria-expanded", String(!collapsed));
+      toggleButton.setAttribute(
+        "aria-label",
+        collapsed ? "Expand accessibility bar" : "Minimize accessibility bar"
+      );
+      toggleButton.textContent = collapsed ? "▸" : "▾";
+    }
+
+    if (collapsed) {
+      const helpButton = toolbar.querySelector('[data-action="toggle-help"]');
+      const panel = toolbar.querySelector(".shortcut-panel");
+      if (helpButton) {
+        helpButton.setAttribute("aria-expanded", "false");
+      }
+      if (panel) {
+        panel.hidden = true;
+      }
+    }
+  }
+
   function init() {
     ensureToolbar();
 
     const savedMode = localStorage.getItem(STORAGE_KEYS.colorMode) || "default";
     const savedContrast = localStorage.getItem(STORAGE_KEYS.contrastMode) || "default";
+    const savedCollapsed = localStorage.getItem(STORAGE_KEYS.toolbarCollapsed) === "1";
     const savedZoom = Number(localStorage.getItem(STORAGE_KEYS.zoom) || "1");
 
     applyColorMode(savedMode);
     applyContrastMode(savedContrast);
+    applyToolbarCollapsed(savedCollapsed);
     let zoomLevel = applyZoom(savedZoom);
 
     document.querySelector(".accessibility-toolbar").addEventListener("click", (event) => {
@@ -93,6 +130,13 @@
       }
 
       const action = button.dataset.action;
+
+      if (action === "toggle-collapse") {
+        const collapsed = !document.querySelector(".accessibility-toolbar").classList.contains("is-collapsed");
+        applyToolbarCollapsed(collapsed);
+        localStorage.setItem(STORAGE_KEYS.toolbarCollapsed, collapsed ? "1" : "0");
+        return;
+      }
 
       if (action === "toggle-contrast") {
         const nextMode = document.body.classList.contains("colorblind-friendly") ? "default" : "friendly";
@@ -157,6 +201,9 @@
         localStorage.setItem(STORAGE_KEYS.contrastMode, nextMode);
       } else if (event.key === "?") {
         event.preventDefault();
+        if (document.querySelector(".accessibility-toolbar").classList.contains("is-collapsed")) {
+          return;
+        }
         const button = document.querySelector('[data-action="toggle-help"]');
         const panel = document.querySelector(".shortcut-panel");
         const expanded = button.getAttribute("aria-expanded") === "true";

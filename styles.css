@@ -485,6 +485,26 @@ footer {
   border: 2px solid var(--line);
   box-shadow: 0 14px 30px rgba(16, 35, 33, 0.14);
   backdrop-filter: blur(10px);
+  overflow: visible;
+}
+
+.toolbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.accessibility-toolbar.is-collapsed {
+  padding: 5px;
+}
+
+.accessibility-toolbar.is-collapsed .toolbar-controls {
+  display: none;
+}
+
+.toolbar-toggle {
+  min-width: 30px;
+  text-align: center;
 }
 
 .toolbar-label {
@@ -590,5 +610,9 @@ kbd {
     right: 10px;
     top: 10px;
     max-width: calc(100vw - 20px);
+  }
+
+  .toolbar-toggle {
+    min-width: 28px;
   }
 }
